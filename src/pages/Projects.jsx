@@ -2,74 +2,98 @@ import React from 'react';
 
 const projects = [
 	{
-		title: 'E-commerce Platform',
+		title: 'StoreID',
+		image: 'https://via.placeholder.com/400x200?text=E-commerce+Platform',
 		description:
 			'A full-stack e-commerce platform with user authentication, payment integration, and a product management system.',
 		techStack: ['React', 'Node.js', 'MongoDB', 'Express'],
 		link: 'https://ecommerce-example.com',
 	},
 	{
-		title: 'Portfolio Website',
-		description:
-			'A clean and responsive portfolio website to showcase personal projects and skills.',
-		techStack: ['React', 'TailwindCSS'],
+		title: 'Qwords Clone',
+		image: 'https://via.placeholder.com/400x200?text=Portfolio+Website',
+		description: 'A platform that provides web hosting services',
+		techStack: ['Laravel'],
 		link: 'https://portfolio-example.com',
 	},
 	{
-		title: 'Blog Platform',
+		title: 'Bakery Website',
+		image: 'https://prnt.sc/7OkXjmQLIp39',
 		description:
-			'A blog platform featuring a Markdown editor, user authentication, and comment moderation.',
-		techStack: ['Next.js', 'Firebase'],
+			'A simple platform makes it easier for bakeries in the process of marketing products and updating products online.',
+		techStack: ['PHP', 'HTML', 'CSS'],
 		link: 'https://blog-example.com',
 	},
 	{
-		title: 'Task Management App',
+		title: 'Covid-19 Patient Data Management',
+		image: 'https://via.placeholder.com/400x200?text=Task+Management+App',
 		description:
-			'A simple task management app with drag-and-drop functionality and real-time updates.',
-		techStack: ['React', 'Socket.IO', 'Node.js'],
+			'A platform for recording and managing Covid-19 patient data at the sub-district level to the city of Banda Aceh.',
+		techStack: ['WordPress'],
 		link: 'https://taskmanager-example.com',
 	},
 ];
 
+const techIcons = {
+	React: 'https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png',
+	'Node.js': 'https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png',
+	Express: 'https://img.icons8.com/?size=100&id=SDVmtZ6VBGXt&format=png',
+	MongoDB: 'https://img.icons8.com/?size=100&id=bosfpvRzNOG8&format=png',
+	TailwindCSS: 'https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png',
+	Laravel: 'https://img.icons8.com/?size=100&id=114956&format=png&color=000000',
+	PHP: 'https://img.icons8.com/?size=100&id=ylXrZF2zxsFE&format=png&color=000000',
+	HTML: 'https://img.icons8.com/?size=100&id=20909&format=png',
+	CSS: 'https://img.icons8.com/?size=100&id=21278&format=png',
+	WordPress: 'https://img.icons8.com/?size=100&id=12472&format=png&color=000000',
+};
+
 const Projects = () => {
 	return (
-		<div className="min-h-screen bg-white text-gray-900">
+		<div className="min-h-screen bg-white text-gray-900 p-5">
 			<div className="max-w-4xl mx-auto">
-				<h1 className="text-3xl font-bold text-center text-blue-600 mb-8">
-					My Projects
-				</h1>
+				<h1 className="text-3xl font-bold text-center mb-8">My Projects</h1>
 
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 					{projects.map((project, index) => (
 						<div
 							key={index}
-							className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+							className="bg-gray-200 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow"
 						>
-							<h2 className="text-xl font-semibold text-blue-600">
-								{project.title}
-							</h2>
-							<p className="text-gray-700 mt-2">{project.description}</p>
-							<div className="mt-4">
-								<h3 className="text-sm font-semibold text-gray-600">Tech Stack:</h3>
-								<ul className="flex flex-wrap gap-2 mt-2">
+							{/* Gambar Proyek */}
+							<img
+								src={project.image}
+								alt={project.title}
+								className="w-full h-40 object-cover"
+							/>
+
+							{/* Konten Proyek */}
+							<div className="p-5">
+								<h2 className="text-xl font-semibold">{project.title}</h2>
+								<p className="text-gray-700 mt-3">{project.description}</p>
+
+								{/* Ikon Tech Stack */}
+								<div className="flex flex-wrap gap-2 mt-4">
 									{project.techStack.map((tech, idx) => (
-										<li
+										<img
 											key={idx}
-											className="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full"
-										>
-											{tech}
-										</li>
+											src={techIcons[tech]}
+											alt={tech}
+											className="w-8 h-8"
+											title={tech}
+										/>
 									))}
-								</ul>
+								</div>
+
+								{/* Tautan */}
+								<a
+									href={project.link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="block mt-4 hover:text-blue-700 font-medium"
+								>
+									View Project &rarr;
+								</a>
 							</div>
-							<a
-								href={project.link}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="block mt-4 text-blue-500 hover:text-blue-700 font-medium"
-							>
-								View Project &rarr;
-							</a>
 						</div>
 					))}
 				</div>

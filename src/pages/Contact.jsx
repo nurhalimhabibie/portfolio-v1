@@ -28,9 +28,7 @@ const Contact = () => {
 	return (
 		<div className="min-h-screen bg-white text-gray-900 flex justify-center p-5">
 			<div className="max-w-lg w-full px-8">
-				<h1 className="text-3xl font-bold text-blue-600 text-center mb-6">
-					Contact Me
-				</h1>
+				<h1 className="text-4xl font-bold text-center mb-6">Contact</h1>
 
 				{submitted ? (
 					<div className="text-center">
