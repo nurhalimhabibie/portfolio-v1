@@ -1,4 +1,6 @@
 import React from 'react';
+import ldgpage from '../assets/images/Landingpage.png';
+import roti from '../assets/images/roti.png';
 
 const projects = [
 	{
@@ -11,14 +13,14 @@ const projects = [
 	},
 	{
 		title: 'Qwords Clone',
-		image: 'https://via.placeholder.com/400x200?text=Portfolio+Website',
+		image: ldgpage,
 		description: 'A platform that provides web hosting services',
 		techStack: ['Laravel'],
 		link: 'https://portfolio-example.com',
 	},
 	{
 		title: 'Bakery Website',
-		image: 'https://prnt.sc/7OkXjmQLIp39',
+		image: roti,
 		description:
 			'A simple platform makes it easier for bakeries in the process of marketing products and updating products online.',
 		techStack: ['PHP', 'HTML', 'CSS'],

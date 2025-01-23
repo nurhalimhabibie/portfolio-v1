@@ -1,29 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
+	const { pathname } = useLocation();
 
-	// Detecting scroll to add blur effect
+	const handleLinkClick = (targetPath) => {
+		if (pathname === targetPath) {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+	};
+
+	const handleScroll = () => {
+		setIsScrolled(window.scrollY > 10);
+	};
+
 	useEffect(() => {
-		const handleScroll = () => {
-			if (window.scrollY > 10) {
-				setIsScrolled(true);
-			} else {
-				setIsScrolled(false);
-			}
-		};
-
 		window.addEventListener('scroll', handleScroll);
-
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
 
+	const menuItems = [
+		{ name: 'About', to: '/about' },
+		{ name: 'Projects', to: '/projects' },
+		{ name: 'Contact', to: '/contact' },
+	];
+
 	const toggleMenu = () => {
-		setIsOpen(!isOpen);
+		setIsMenuOpen(!isMenuOpen);
 	};
 
 	return (
@@ -35,22 +42,22 @@ const Navbar = () => {
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-36">
 				<div className="flex items-center justify-between h-20">
 					{/* Logo */}
-					<Link to="/" className="text-2xl font-bold text-blue-600">
+					<Link
+						to="/"
+						onClick={() => handleLinkClick('/')}
+						className="text-2xl font-bold text-blue-600"
+					>
 						semicolon
 					</Link>
 
 					{/* Menu Links (Desktop) */}
 					<div className="hidden md:flex space-x-6">
-						{[
-							{ name: 'Home', to: '/' },
-							{ name: 'About', to: '/about' },
-							{ name: 'Projects', to: '/projects' },
-							{ name: 'Contact', to: '/contact' },
-						].map((item) => (
+						{menuItems.map((item) => (
 							<Link
-								key={item.name}
+								key={item.to}
 								to={item.to}
-								className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300"
+								onClick={() => handleLinkClick(item.to)}
+								className="text-lg text-gray-700 hover:text-blue-600"
 							>
 								{item.name}
 							</Link>
@@ -70,7 +77,7 @@ const Navbar = () => {
 								viewBox="0 0 24 24"
 								stroke="currentColor"
 							>
-								{isOpen ? (
+								{isMenuOpen ? (
 									<path
 										strokeLinecap="round"
 										strokeLinejoin="round"
@@ -92,20 +99,18 @@ const Navbar = () => {
 			</div>
 
 			{/* Dropdown Menu (Mobile) */}
-			{isOpen && (
+			{isMenuOpen && (
 				<div className="md:hidden bg-gray-100">
 					<div className="space-y-1 px-2 pt-2 pb-3">
-						{[
-							{ name: 'Home', to: '/' },
-							{ name: 'About', to: '/about' },
-							{ name: 'Projects', to: '/projects' },
-							{ name: 'Contact', to: '/contact' },
-						].map((item) => (
+						{menuItems.map((item) => (
 							<Link
-								key={item.name}
+								key={item.to}
 								to={item.to}
-								className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200 hover:text-blue-600"
-								onClick={() => setIsOpen(false)}
+								onClick={() => {
+									handleLinkClick(item.to);
+									setIsMenuOpen(false);
+								}}
+								className="block px-4 py-2 text-lg text-gray-700 hover:text-blue-600"
 							>
 								{item.name}
 							</Link>
