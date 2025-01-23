@@ -1,6 +1,6 @@
 import React from 'react';
 import ldgpage from '../assets/images/Landingpage.png';
-import roti from '../assets/images/roti.png';
+import roti from '../assets/images/Roti.png';
 
 const projects = [
 	{
