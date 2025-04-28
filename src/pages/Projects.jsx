@@ -1,22 +1,24 @@
 import React from 'react';
 import ldgpage from '../assets/images/Landingpage.png';
 import roti from '../assets/images/Roti.png';
+import ecom from '../assets/images/ecom.png';
 
 const projects = [
 	{
 		title: 'StoreID',
-		image: 'https://via.placeholder.com/400x200?text=E-commerce+Platform',
+		image: ecom,
 		description:
 			'A full-stack e-commerce platform with user authentication, payment integration, and a product management system.',
 		techStack: ['React', 'Node.js', 'MongoDB', 'Express'],
-		link: 'https://ecommerce-example.com',
+		link: 'https://eduwork-client.vercel.app/',
 	},
 	{
 		title: 'Qwords Clone',
 		image: ldgpage,
-		description: 'A platform that provides web hosting services',
+		description:
+			'A web hosting platform that provides storage, security, and server resources to keep websites online.',
 		techStack: ['Laravel'],
-		link: 'https://portfolio-example.com',
+		link: 'https://landingpage-qwords.vercel.app/',
 	},
 	{
 		title: 'Bakery Website',
@@ -25,14 +27,6 @@ const projects = [
 			'A simple platform makes it easier for bakeries in the process of marketing products and updating products online.',
 		techStack: ['PHP', 'HTML', 'CSS'],
 		link: 'https://blog-example.com',
-	},
-	{
-		title: 'Covid-19 Patient Data Management',
-		image: 'https://via.placeholder.com/400x200?text=Task+Management+App',
-		description:
-			'A platform for recording and managing Covid-19 patient data at the sub-district level to the city of Banda Aceh.',
-		techStack: ['WordPress'],
-		link: 'https://taskmanager-example.com',
 	},
 ];
 
