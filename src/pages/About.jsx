@@ -1,30 +1,34 @@
 import React from 'react';
-import rbt from '../assets/images/Robot.png';
+import profil from '../assets/images/profil.jpg';
+import git from '../assets/images/github.png';
+import post from '../assets/images/postman-color.svg';
 
 const About = () => {
 	return (
 		<div className="min-h-screen bg-white text-gray-900 p-5">
 			{/* About Section */}
-			<section className="sm:px-10 lg:px-32">
-				<h1 className="text-4xl font-bold mb-16 text-center">About</h1>
-				<div className="flex flex-col items-center gap-5 lg:flex-row lg:items-start lg:text-justify lg:px-10 ">
+			<section className="pb-10 sm:px-10 lg:px-32">
+				<h1 className="text-4xl font-bold mb-5 text-center">About</h1>
+				<div className="flex flex-col items-center gap-5 lg:flex-row lg:items-start lg:text-justify px-3 lg:px-10 ">
 					{/* Gambar */}
 					<div className="flex justify-center lg:justify-end">
-						<img src={rbt} alt="semibot" className="w-full max-w-full lg:max-w-md" />
+						<div className="relative w-full max-w-full lg:max-w-md rounded-full overflow-hidden shadow-lg">
+							<img src={profil} alt="semibot" className="w-full h-auto" />
+						</div>
 					</div>
 
 					{/* Teks */}
 					<div>
-						<p className="text-xl font-semibold mb-3 text-center lg:text-start">
+						<p className="text-xl font-semibold mb-2 text-start lg:text-start">
 							Nurhalim Habibie
 						</p>
-						<p className="text-lg font-normal text-center lg:text-start leading-relaxed">
-							Hi, I'm Nurhalim Habibie, a passionate developer dedicated to crafting
-							seamless digital experiences. My journey in web development has been
-							fueled by curiosity and the drive to transform ideas into impactful
-							solutions.
+						<p className="text-lg font-normal text-justify lg:text-start leading-relaxed">
+							Hi, my name is Nurhalim Habibie, a passionate developer dedicated to
+							crafting seamless digital experiences. My journey in web development
+							has been fueled by curiosity and the drive to transform ideas into
+							impactful solutions.
 						</p>
-						<div className="flex flex-wrap gap-4 mt-3 justify-center lg:justify-start">
+						<div className="flex flex-wrap gap-4 mt-3 justify-start lg:justify-start">
 							<a
 								href="https://www.linkedin.com/in/nurhalim-habibie/"
 								className="flex px-5 py-1 bg-black text-white text-base rounded-md font-semibold hover:bg-black/[0.8] hover:shadow-lg"
@@ -56,39 +60,55 @@ const About = () => {
 				</div>
 			</section>
 
-			{/* Details Section */}
-			<section className="py-20 px-5 sm:px-10 lg:px-32">
-				<h2 className="text-4xl font-bold text-center mb-10">Details</h2>
-				<div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-					{/* Vision */}
-					<div className="bg-gray-100 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-						<h3 className="text-2xl font-bold mb-3">Vision</h3>
-						<p className="text-lg text-gray-700 leading-relaxed">
-							To create user-friendly and aesthetically pleasing websites that
-							connect people with technology in meaningful ways.
-						</p>
-					</div>
-
-					{/* Mission */}
-					<div className="bg-gray-100 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-						<h3 className="text-2xl font-bold mb-3">Mission</h3>
-						<p className="text-lg text-gray-700 leading-relaxed">
-							My mission is to continuously learn and apply the latest technologies
-							to develop innovative solutions, while prioritizing simplicity,
-							accessibility, and performance in every project.
-						</p>
-					</div>
-				</div>
-			</section>
-
-			{/* Fun Fact Section */}
-			<section className="py-20 px-5 sm:px-10 lg:px-32 bg-gray-50">
-				<div className="max-w-2xl mx-auto text-center">
-					<h2 className="text-4xl font-bold mb-6">Fun Fact</h2>
-					<p className="text-lg text-gray-700">
-						I’m a firm believer in the power of <strong>“semicolon”</strong>—both as
-						a punctuation mark and a symbol of continuity and innovation.
-					</p>
+			{/* Skills Section */}
+			<section className="py-20 sm:px-10 lg:px-32">
+				<h1 className="text-4xl font-bold mb-16 text-center">Skills</h1>
+				<div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+					{[
+						{
+							name: 'HTML',
+							src: 'https://img.icons8.com/?size=100&id=20909&format=png',
+						},
+						{
+							name: 'CSS',
+							src: 'https://img.icons8.com/?size=100&id=21278&format=png',
+						},
+						{
+							name: 'JavaScript',
+							src: 'https://img.icons8.com/?size=100&id=108784&format=png',
+						},
+						{
+							name: 'Bootstrap',
+							src: 'https://img.icons8.com/?size=100&id=PndQWK6M1Hjo&format=png',
+						},
+						{
+							name: 'React',
+							src: 'https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png',
+						},
+						{
+							name: 'Node.js',
+							src: 'https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png',
+						},
+						{
+							name: 'Express',
+							src: 'https://img.icons8.com/?size=100&id=SDVmtZ6VBGXt&format=png',
+						},
+						{
+							name: 'MongoDB',
+							src: 'https://img.icons8.com/?size=100&id=bosfpvRzNOG8&format=png',
+						},
+						{
+							name: 'Tailwind',
+							src: 'https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png',
+						},
+						{ name: 'Postman', src: post },
+						{ name: 'GitHub', src: git },
+					].map((skill) => (
+						<div key={skill.name} className="flex flex-col items-center">
+							<img src={skill.src} alt={skill.name} className="w-12 h-12" />
+							<p className="text-xl">{skill.name}</p>
+						</div>
+					))}
 				</div>
 			</section>
 		</div>

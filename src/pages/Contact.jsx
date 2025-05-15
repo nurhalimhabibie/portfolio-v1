@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
 	const [formData, setFormData] = useState({
@@ -6,7 +7,6 @@ const Contact = () => {
 		email: '',
 		message: '',
 	});
-
 	const [submitted, setSubmitted] = useState(false);
 
 	const handleChange = (e) => {
@@ -16,14 +16,22 @@ const Contact = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('Form Data Submitted:', formData);
-		setSubmitted(true);
-		// Reset form
-		setFormData({
-			name: '',
-			email: '',
-			message: '',
-		});
+
+		const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+		const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+		const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+		emailjs.send(serviceId, templateId, formData, publicKey).then(
+			(result) => {
+				console.log('SUCCESS!', result.text);
+				setSubmitted(true);
+				setFormData({ name: '', email: '', message: '' });
+			},
+			(error) => {
+				console.log('FAILED...', error.text);
+				alert('Something went wrong, please try again.');
+			},
+		);
 	};
 	return (
 		<div className="min-h-screen bg-white text-gray-900 flex justify-center p-5">

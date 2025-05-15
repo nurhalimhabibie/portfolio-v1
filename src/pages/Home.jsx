@@ -1,6 +1,4 @@
 import React from 'react';
-import git from '../assets/images/github.png';
-import post from '../assets/images/postman-color.svg';
 import mtsn from '../assets/images/LOGO-MTSN-1.png';
 
 const Home = () => {
@@ -31,55 +29,31 @@ const Home = () => {
 				</div>
 			</section>
 
-			{/* Skills Section */}
-			<section className="py-20 px-3 sm:px-10 lg:px-32">
-				<h2 className="text-4xl font-bold text-center mb-20">My Skills</h2>
-				<div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
-					{[
-						{
-							name: 'HTML',
-							src: 'https://img.icons8.com/?size=100&id=20909&format=png',
-						},
-						{
-							name: 'CSS',
-							src: 'https://img.icons8.com/?size=100&id=21278&format=png',
-						},
-						{
-							name: 'JavaScript',
-							src: 'https://img.icons8.com/?size=100&id=108784&format=png',
-						},
-						{
-							name: 'Bootstrap',
-							src: 'https://img.icons8.com/?size=100&id=PndQWK6M1Hjo&format=png',
-						},
-						{
-							name: 'React',
-							src: 'https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png',
-						},
-						{
-							name: 'Node.js',
-							src: 'https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png',
-						},
-						{
-							name: 'Express',
-							src: 'https://img.icons8.com/?size=100&id=SDVmtZ6VBGXt&format=png',
-						},
-						{
-							name: 'MongoDB',
-							src: 'https://img.icons8.com/?size=100&id=bosfpvRzNOG8&format=png',
-						},
-						{
-							name: 'Tailwind CSS',
-							src: 'https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png',
-						},
-						{ name: 'Postman', src: post },
-						{ name: 'GitHub', src: git },
-					].map((skill) => (
-						<div key={skill.name} className="flex flex-col items-center">
-							<img src={skill.src} alt={skill.name} className="w-12 h-12" />
-							<p className="text-xl">{skill.name}</p>
-						</div>
-					))}
+			{/* Services Section */}
+			<section className="py-20 px-5 sm:px-10 lg:px-32">
+				<h1 className="text-4xl font-bold text-center mb-16">My Services</h1>
+				<div className="space-y-16 max-w-4xl mx-auto">
+					{/* DESIGN */}
+					<div>
+						<h3 className="text-2xl font-semibold mb-3">Design</h3>
+						<p className="text-lg border-b border-gray-600 text-gray-700 pb-4">
+							I specialize in crafting clean and modern user interfaces that not only
+							look great but also offer excellent user experience. Through wireframes
+							and interactive prototypes, I help bring ideas to life and ensure every
+							design decision is purposeful and user-centered.
+						</p>
+					</div>
+
+					{/* DEVELOPMENT */}
+					<div>
+						<h3 className="text-2xl font-semibold mb-3">Development</h3>
+						<p className="text-lg border-b border-gray-600 text-gray-700 pb-4">
+							I build fast, responsive, and accessible websites using modern
+							technologies like React, Tailwind CSS, and Node.js. My development
+							process focuses on performance, scalability, and clean architecture to
+							ensure long-term maintainability.
+						</p>
+					</div>
 				</div>
 			</section>
 
